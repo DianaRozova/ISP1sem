@@ -1,0 +1,6 @@
+D:\studyInUniversity\1 level\2 cem\ISP\Lab2\lab2\bin\Debug\lab2.exe.config
+D:\studyInUniversity\1 level\2 cem\ISP\Lab2\lab2\bin\Debug\lab2.exe
+D:\studyInUniversity\1 level\2 cem\ISP\Lab2\lab2\bin\Debug\lab2.pdb
+D:\studyInUniversity\1 level\2 cem\ISP\Lab2\lab2\obj\Debug\Lab2.csprojResolveAssemblyReference.cache
+D:\studyInUniversity\1 level\2 cem\ISP\Lab2\lab2\obj\Debug\lab2.exe
+D:\studyInUniversity\1 level\2 cem\ISP\Lab2\lab2\obj\Debug\lab2.pdb
