@@ -1,0 +1,8 @@
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\Lab4\obj\Debug\Lab4.csprojResolveAssemblyReference.cache
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\Lab4\bin\Debug\Lab4.exe.config
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\Lab4\bin\Debug\Lab4.exe
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\Lab4\bin\Debug\Lab4.pdb
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\Lab4\obj\Debug\Lab4.exe
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\Lab4\obj\Debug\Lab4.pdb
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\Lab4\bin\Debug\ClassLibrary1.dll
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\Lab4\bin\Debug\ClassLibrary1.pdb
