@@ -1,0 +1,5 @@
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+D:\studyInUniversity\1 level\2 cem\ISP\Lab4\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
