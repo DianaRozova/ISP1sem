@@ -17,6 +17,7 @@ namespace Lab5
         Handball,
         Judo
     };
+
     class Human
     {
         public static int NumberOfPeople = 0;
@@ -61,6 +62,7 @@ namespace Lab5
                 }
             }
         }
+
         protected int age = 0;
 
         public Human(string first, string last, string middle, int old)
@@ -98,8 +100,10 @@ namespace Lab5
                 }
             }
         }
+
         public virtual string Print() => $" {GeneralInfo.FirstName} {GeneralInfo.LastName} {GeneralInfo.MiddleName}";
     }
+
     class Sportsmen : Human
     {
         public string TypeOfSport { get; set; }
@@ -109,6 +113,7 @@ namespace Lab5
         {
             (TypeOfSport) = (typeofsport);
         }
+
         public Sportsmen(string FirstName, string LastName, string MiddleName, int age, int typeofsport)
             : base(FirstName, LastName, MiddleName, age)
         {
@@ -116,6 +121,7 @@ namespace Lab5
         }
 
     }
+
     class Specialist : Sportsmen
     {
         public Specialist(string proff, string FirstName, string LastName, string MiddleName, int age, string typeofsport) :
@@ -126,46 +132,18 @@ namespace Lab5
 
         public string vocation;
 
-        public void AddToPrint(string str1)
-        {
-            Console.WriteLine(Print() + " " + str1);
-        }
-        public void AddToPrint(string str1, string str2)
-        {
-            Console.WriteLine(Print() + " " + str1 + " " + str2);
-        }
-        public void AddToPrint(params string[] args)
-        {
-            Console.WriteLine(Print());
-            foreach (var x in args)
-            {
-                Console.WriteLine(x);
-            }
-        }
         public override string Print() => $" {GeneralInfo.FirstName} {GeneralInfo.LastName} {GeneralInfo.MiddleName} {TypeOfSport} {vocation}";
     }
+
     class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine(Human.NumberOfPeople);
-            Console.Write("Write first name: ");
-            string firstName = Console.ReadLine();
-            Console.Write("Write last name: ");
-            string lastName = Console.ReadLine();
-            Console.Write("Write age: ");
-            int age = Convert.ToInt16(Console.ReadLine());
-            Human first = new Human(first: firstName, last: lastName, old: age, middle: "");
-            Console.Write("Write type of sport: ");
-            string typeOfSport = Console.ReadLine();
-            Console.Write("Write speciality of sport: ");
-            string special = Console.ReadLine();
-            Specialist second = new Specialist(special, firstName, lastName, "", age, typeOfSport);
-            Console.WriteLine(second["name"]);
-            Console.Write("Write add string 1: ");
-            second.AddToPrint(Console.ReadLine());
-            Console.Write("Write add string 2: ");
-            second.AddToPrint(Console.ReadLine(), Console.ReadLine());
+            Human first = new Human(first: "Розова", last: "Диана", old: 20, middle: "Александровна");
+            Console.WriteLine(first.Print());
+            first = new Specialist("педагог", "Иванов", "Иван", "Иванович", 40, 3);
+            Console.WriteLine(first.Print());
             Console.WriteLine(Human.NumberOfPeople);
             Console.ReadKey();
         }
