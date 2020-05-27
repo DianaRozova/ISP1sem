@@ -77,7 +77,7 @@ namespace Lab8
                 }
             }
         }
-
+        public Human() { }
         public Human(string first, string last, string middle, int old)
         {
             GeneralInfo.FirstName = first;
@@ -86,6 +86,18 @@ namespace Lab8
             age = old;
             NumberOfPeople++;
             if (Notify != null) Notify("Создан новый пользователь #" + NumberOfPeople);
+        }
+
+        public static void CopyObject(Human obj)
+        {
+            if (obj == null)
+            {
+                throw new System.ArgumentException("Parameter cannot be null");
+            }
+        }
+        public static Human operator --(Human obj)
+        {
+            throw new System.ArgumentException("Age cannnot be degree");
         }
 
         public string this[string propname]
@@ -179,34 +191,43 @@ namespace Lab8
 
         static void Main(string[] args)
         {
-            Console.WriteLine(Human.NumberOfPeople);
-            Human.Notify += (string message) => { Console.WriteLine(message); };
-            Human.Notify += delegate (string message)
+            try
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(message);
-                Console.ResetColor();
-            };
-            Human first = new Human(first: "Розова", last: "Диана", old: 20, middle: "Александровна");
-            Specialist second = new Specialist("тренер", "Иванов", "Иван", "Иванович", 40, Enum.GetName(typeof(TypeOfSport), 2));
-            Human test = second;
-            test.Print();
-            Specialist third = (Specialist)test;
-            second._del = (string[] str) => { Console.WriteLine(second.Print() + AddToPrint(str)); };
-            Console.WriteLine(second["name"]);
-            Console.Write("Write add string 1: ");
-            second._del(Console.ReadLine());
-            Console.Write("Write add string 2: ");
-            second._del(Console.ReadLine(), Console.ReadLine());
-            Console.WriteLine(Human.NumberOfPeople);
-            Specialist newSpethialist = new Specialist("gjdfls", "jdsfkjf", "hkjfskdf", "sihdfskd", 145, 0);
-            Console.WriteLine(newSpethialist.Print());
-            ISport newSportsmen = newSpethialist;
-            newSportsmen.PrintSport();
-            Specialist newSpesh = (Specialist)newSportsmen;
-            Console.WriteLine(newSpesh.Print());
-            Console.WriteLine(newSpethialist.CompareTo(second));
-            Console.ReadKey();
+                Console.WriteLine(Human.NumberOfPeople);
+                Human.Notify += (string message) => { Console.WriteLine(message); };
+                Human.Notify += delegate (string message)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(message);
+                    Console.ResetColor();
+                };
+                Human first = new Human(first: "Розова", last: "Диана", old: 20, middle: "Александровна");
+                Human newhuman = null;
+                Human.CopyObject(newhuman);
+                first--;
+            }
+            catch(Exception ex)
+            {
+                Specialist second = new Specialist("тренер", "Иванов", "Иван", "Иванович", 40, Enum.GetName(typeof(TypeOfSport), 2));
+                Human test = second;
+                test.Print();
+                Specialist third = (Specialist)test;
+                second._del = (string[] str) => { Console.WriteLine(second.Print() + AddToPrint(str)); };
+                Console.WriteLine(second["name"]);
+                Console.Write("Write add string 1: ");
+                second._del(Console.ReadLine());
+                Console.Write("Write add string 2: ");
+                second._del(Console.ReadLine(), Console.ReadLine());
+                Console.WriteLine(Human.NumberOfPeople);
+                Specialist newSpethialist = new Specialist("gjdfls", "jdsfkjf", "hkjfskdf", "sihdfskd", 145, 0);
+                Console.WriteLine(newSpethialist.Print());
+                ISport newSportsmen = newSpethialist;
+                newSportsmen.PrintSport();
+                Specialist newSpesh = (Specialist)newSportsmen;
+                Console.WriteLine(newSpesh.Print());
+                Console.WriteLine(newSpethialist.CompareTo(second));
+                Console.ReadKey();
+            }
         }
 
     }
