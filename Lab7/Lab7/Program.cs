@@ -19,6 +19,7 @@ namespace Lab7
                 chisl = up;
                 znam = low;
             }
+
             public Fraction(string str)
             {
                 string[] arrOfString = str.Split(separators);
@@ -34,6 +35,7 @@ namespace Lab7
                 }
                 PrintFractiom();
             }
+
             public Fraction(int value)
             {
                 chisl = value;
@@ -47,10 +49,12 @@ namespace Lab7
                 }
                 PrintFractiom();
             }
+
             public void PrintFractiom()
             {
                 Console.WriteLine($"Get drob {this.chisl}/{this.znam}");
             }
+
             private static int getNOD(int a, int b)
             {
                 while (b != 0)
@@ -61,10 +65,12 @@ namespace Lab7
                 }
                 return a;
             }
+
             private static int getNOK(int a, int b)
             {
                 return a * b / getNOD(a, b);
             }
+
             private static Fraction performOperation(Fraction a, Fraction b, Func<int, int, int> operation)
             {
                 int NOK = getNOK(a.znam, b.znam);
@@ -73,46 +79,57 @@ namespace Lab7
                 int result = operation(a.chisl * fractionFactor1, b.chisl * fractionFactor2);
                 return new Fraction(result, a.znam * fractionFactor1);
             }
+
             public static Fraction operator +(Fraction a, Fraction b)
             {
                 return performOperation(a, b, (int x, int y) => x + y);
             }
+
             public static Fraction operator +(Fraction a, int b)
             {
                 return a + new Fraction(b);
             }
+
             public static Fraction operator -(Fraction a, Fraction b)
             {
                 return performOperation(a, b, (int x, int y) => x - y);
             }
+
             public static Fraction operator -(Fraction a, int b)
             {
                 return a - new Fraction(b);
             }
+
             public static Fraction operator *(Fraction a, Fraction b)
             {
                 return new Fraction(a.chisl * a.sign * b.chisl * b.sign, a.znam * b.znam);
             }
+
             public static Fraction operator /(Fraction a, Fraction b)
             {
                 return a * b.GetReverse();
             }
+
             public static Fraction operator /(Fraction a, int b)
             {
                 return a / new Fraction(b);
             }
+
             public static Fraction operator ++(Fraction a)
             {
                 return a + 1;
             }
+
             public static Fraction operator --(Fraction a)
             {
                 return a - 1;
             }
+
             private Fraction GetReverse()
             {
                 return new Fraction(this.znam * this.sign, this.chisl);
             }
+
             public Fraction Reduce()
             {
                 Fraction result = this;
@@ -121,6 +138,7 @@ namespace Lab7
                 result.znam /= greatestCommonDivisor;
                 return result;
             }
+
             public override string ToString()
             {
                 int[] arr = { 1, 2, 5, 10 };
@@ -153,6 +171,7 @@ namespace Lab7
                 }
                 return this.chisl + "/" + this.znam;
             }
+
             public bool Equals(Fraction obj)
             {
                 Fraction a = this.Reduce();
@@ -166,10 +185,12 @@ namespace Lab7
             {
                 return a.Equals(b);
             }
+
             public static bool operator !=(Fraction a, Fraction b)
             {
                 return !(a == b);
             }
+
             public override int GetHashCode()
             {
                 return this.sign * (this.chisl * this.chisl + this.znam * this.znam);
@@ -195,13 +216,13 @@ namespace Lab7
             {
                 return a.CompareTo(b) < 0;
             }
+
             public static bool operator >(Fraction a, Fraction b)
             {
                 return a.CompareTo(b) > 0;
             }
-
-
         }
+
         static void Main(string[] args)
         {
             Fraction obj1 = new Fraction("1:2");
