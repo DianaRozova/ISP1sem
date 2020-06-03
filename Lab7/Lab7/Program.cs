@@ -225,17 +225,24 @@ namespace Lab7
 
         static void Main(string[] args)
         {
-            Fraction obj1 = new Fraction("1:2");
-            Fraction obj2 = new Fraction(10);
-            Fraction obj3 = new Fraction(1, 2);
-            Fraction objAddition = obj1 + obj3;
-            objAddition.PrintFractiom();
-            Fraction objMultipe = obj1 * obj2;
-            objMultipe.PrintFractiom();
-            Fraction objDivision = obj1 / obj2;
-            objDivision.PrintFractiom();
-            Console.WriteLine(objAddition.ToString());
-            Console.WriteLine(obj3.ToString());
+            try
+            {
+                Fraction obj1 = new Fraction("1:2");
+                Fraction obj2 = new Fraction(10);
+                Fraction obj3 = new Fraction(1, 2);
+                Fraction objAddition = obj1 + obj3;
+                objAddition.PrintFractiom();
+                Fraction objMultipe = obj1 * obj2;
+                objMultipe.PrintFractiom();
+                Fraction objDivision = obj1 / obj2;
+                objDivision.PrintFractiom();
+                Console.WriteLine(objAddition.ToString());
+                Console.WriteLine(obj3.ToString());
+            }
+            catch
+            {
+                Console.WriteLine("Какая-то ошибка!!!!!!!");
+            }
             Console.ReadKey();
         }
     }
