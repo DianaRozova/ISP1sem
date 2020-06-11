@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab7
 {
@@ -22,6 +20,19 @@ namespace Lab7
 
             public Fraction(string str)
             {
+                string reg = @"\d+[/-:]\d+$";
+                while (true)
+                {
+                    if (Regex.IsMatch(str, reg))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Некорректный ввод, введите строку снова");
+                        str = Console.ReadLine();
+                    }
+                }
                 string[] arrOfString = str.Split(separators);
                 chisl = Int32.Parse(arrOfString[0]);
                 znam = Int32.Parse(arrOfString[1]);
@@ -64,6 +75,16 @@ namespace Lab7
                     a = temp;
                 }
                 return a;
+            }
+
+            public static implicit operator int(Fraction number)
+            {
+                return number.chisl / number.znam;
+            }
+
+            public static explicit operator double(Fraction number)
+            {
+                return (double)number.chisl / number.znam;
             }
 
             private static int getNOK(int a, int b)
@@ -225,24 +246,20 @@ namespace Lab7
 
         static void Main(string[] args)
         {
-            try
-            {
-                Fraction obj1 = new Fraction("1:2");
-                Fraction obj2 = new Fraction(10);
-                Fraction obj3 = new Fraction(1, 2);
-                Fraction objAddition = obj1 + obj3;
-                objAddition.PrintFractiom();
-                Fraction objMultipe = obj1 * obj2;
-                objMultipe.PrintFractiom();
-                Fraction objDivision = obj1 / obj2;
-                objDivision.PrintFractiom();
-                Console.WriteLine(objAddition.ToString());
-                Console.WriteLine(obj3.ToString());
-            }
-            catch
-            {
-                Console.WriteLine("Какая-то ошибка!!!!!!!");
-            }
+            Fraction obj1 = new Fraction("1:2");
+            Fraction obj2 = new Fraction(10);
+            Fraction obj3 = new Fraction(1, 2);
+            Fraction objAddition = obj1 + obj3;
+            objAddition.PrintFractiom();
+            Fraction objMultipe = obj1 * obj2;
+            objMultipe.PrintFractiom();
+            Fraction objDivision = obj1 / obj2;
+            objDivision.PrintFractiom();
+            Console.WriteLine(objAddition.ToString());
+            Console.WriteLine(obj3.ToString());
+            int chislo = obj1;
+            double dchislo = (double)obj1;
+            Console.WriteLine(chislo+" "+ dchislo);
             Console.ReadKey();
         }
     }
